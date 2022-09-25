@@ -98,9 +98,9 @@
                 <div class="center"><h1>Cadastrar Produto</h1><img src="img/carrinhocompra.png" alt="alt" height="230px" width="230px" class="img"/></div>
 
                 <div class="menu">
-                    <form action="" method="post">
+                    <form action="CadastroProduto" method="post" enctype="multipart/form-data">
                         <input type="text" name="nome" placeholder="Nome">
-                        <input type="textarea" name="descrição" placeholder="Descrição">
+                        <input type="textarea" name="descricao" placeholder="Descrição">
                         <input type="number" name="qtd" placeholder="Quantidade">
                         <input type="number" name="preco" placeholder="Preço">
                         <input type="text" name="fornecedor" placeholder="Fornecedor">

@@ -1,0 +1,20 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package br.edu.ifpr.mercado.models;
+
+import br.edu.ifpr.mercado.DAOs.ProdutoDAO;
+import br.edu.ifpr.mercado.entities.Produto;
+import java.sql.SQLException;
+
+/**
+ *
+ * @author otavio
+ */
+public class ProdutoModel {
+    public void add(Produto p) throws SQLException{
+        ProdutoDAO dao = new ProdutoDAO();
+        dao.add(p);
+    }
+}
