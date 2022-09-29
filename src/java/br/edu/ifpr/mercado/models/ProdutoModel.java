@@ -7,6 +7,7 @@ package br.edu.ifpr.mercado.models;
 import br.edu.ifpr.mercado.DAOs.ProdutoDAO;
 import br.edu.ifpr.mercado.entities.Produto;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,5 +17,10 @@ public class ProdutoModel {
     public void add(Produto p) throws SQLException{
         ProdutoDAO dao = new ProdutoDAO();
         dao.add(p);
+    }
+    
+    public ArrayList listar() throws SQLException{
+        ProdutoDAO dao = new ProdutoDAO();
+         return dao.listar();
     }
 }
