@@ -29,4 +29,9 @@ public class ProdutoModel {
         Produto p = dao.buscarIndex(index);
         return p;
     }
+    
+    public void excluirProduto(int index){
+        ProdutoDAO dao = new ProdutoDAO();
+        dao.excluirProduto(index);
+    }
 }

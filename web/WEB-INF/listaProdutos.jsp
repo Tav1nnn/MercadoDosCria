@@ -13,40 +13,38 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link rel="stylesheet" href="css/listaProdutos"/>
-         <script src="https://kit.fontawesome.com/f9c75e61f8.js" crossorigin="anonymous"></script>
-         <link rel="stylesheet" href="css/listaProdutos.css"/>
+        <script src="https://kit.fontawesome.com/f9c75e61f8.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/listaProdutos.css"/>
     </head>
     <body>
-        <section class="container">
-            <h1>Lista de Produtos</h1>
-            <table class="ex">
-                <tr>
-                
-                    <th>#</th>
-                    <th>Nome</th>
-                    <th>Descrição</th>
-                    <th>Quantidade</th>
-                    <th>Preço</th>
-                    <th>Fornecedor</th>
-                    <th>#</th>
-                    <th>#</th>
-                    
-                </tr>
+        <div class="container">
 
+            <ul class="responsive-table">
+                <li class="table-header">
+                    <div class="col col-1">#</div>
+                    <div class="col col-2">Nome</div>
+                    <div class="col col-3">Descrição</div>
+                    <div class="col col-4">Qtd</div>
+                    <div class="col col-5">Preço</div>
+                    <div class="col col-6">Fornecedor</div>
+                    <div class="col col-7">#</div>
+                    <div class="col col-8">#</div>
+                </li>
                 <c:forEach varStatus="status" var="model" items="${produtos}">
-                    <tr>
-                        <td>${status.index + 1}</td>
-                        <td class="nome">${model.nome}</td>
-                        <td class="descricao">${model.descricao}</td>
-                        <td class="nome">${model.quantidade}</td>
-                        <td class="nome">${model.preco}</td>
-                        <td class="nome">${model.fornecedor}</td>
-                        <td class="icon"><a href="EditarProduto?indice=${model.id}"><i class="fa-solid fa-pencil"></a></i></td>
-                        <td class="icon"><a href="url"><i class="fa-solid fa-trash-can"></a></i></td>
-                    </tr>
-                </c:forEach>
+                    <li class="table-row">
+                        <div class="col col-1" data-label="Job Id">${status.index + 1}</div>
+                        <div class="col col-2" data-label="Customer Name">${model.nome}</div>
+                        <div class="col col-3" data-label="Amount">${model.descricao}</div>
+                        <div class="col col-4" data-label="Payment Status">${model.quantidade}</div>
+                        <div class="col col-5" data-label="Payment Status">${model.preco}</div>
+                        <div class="col col-6" data-label="Payment Status">${model.fornecedor}</div>
+                        <div class="col col-7" data-label="Payment Status"><a href="EditarProduto?indice=${model.id}"><i class="fa-solid fa-pencil"></a></i></div>
+                        <div class="col col-8" data-label="Payment Status"><a href="ExcluirProduto?indice=${model.id}"><i class="fa-solid fa-trash-can"></a></i></div>
+                    </li>
 
-            </table>
-        </section>
+                </c:forEach>
+            </ul>
+        </div>
+      
     </body>
 </html>

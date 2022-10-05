@@ -21,10 +21,8 @@
 
                 <div class="menu">
                     <a href="CadastroProduto">Novo Produto</a>
-                    <a href="url">Remover Produto</a>
-                    <a href="ListarProdutos">Atualizar Produtos</a>
-                    <a href="url">Relatorio de Estoque</a>
-                    <a href="url">Voltar</a>
+                    <a href="ListarProdutos">Lista Produtos</a>
+                    <a href="Login">Voltar</a>
                     
                 </div>
             </div>

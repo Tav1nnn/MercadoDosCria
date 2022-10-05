@@ -77,18 +77,32 @@ public class ProdutoDAO {
 
         Produto p = null;
 
-       if(rs.next()) {
+        if (rs.next()) {
             String nome = rs.getString("NOME");
             String descricao = rs.getString("DESCRICAO");
             int quantidade = rs.getInt("QUANTIDADE");
             int preco = rs.getInt("PRECO");
             String fornecedor = rs.getString("FORNECEDOR");
-            
+
             p = new Produto(id, nome, descricao, quantidade, preco, fornecedor);
-            
+
         }
- 
+        conexao.close();
         return p;
+    }
+
+    public void excluirProduto(int index) throws SQLException {
+        String sql = "DELETE FROM PRODUTO WHERE ID = ?";
+        Connection conexao = new ConnectionFactory().getConnection();
+        PreparedStatement stmt = conexao.prepareStatement(sql);
+
+        int id = index;
+
+        stmt.setInt(1, id);
+
+        stmt.execute();
+        stmt.close();
+        conexao.close();
     }
 
 }
