@@ -43,7 +43,7 @@ public class ListarProdutos extends HttpServlet {
             request.setAttribute("produtos", produtos);
             request.getRequestDispatcher("WEB-INF/listaProdutos.jsp").forward(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(editarProduto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EditarProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
          
     }

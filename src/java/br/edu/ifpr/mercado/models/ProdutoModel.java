@@ -23,4 +23,10 @@ public class ProdutoModel {
         ProdutoDAO dao = new ProdutoDAO();
          return dao.listar();
     }
+    
+    public Produto buscarIndex(int index) throws SQLException{
+        ProdutoDAO dao = new ProdutoDAO();
+        Produto p = dao.buscarIndex(index);
+        return p;
+    }
 }

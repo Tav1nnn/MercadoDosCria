@@ -54,13 +54,41 @@ public class ProdutoDAO {
             p.setQuantidade(rs.getInt("QUANTIDADE"));
             p.setPreco(rs.getInt("PRECO"));
             p.setFornecedor(rs.getString("FORNECEDOR"));
-            
+
             produtos.add(p);
         }
-        
+
         conexao.close();
         return produtos;
 
+    }
+
+    public Produto buscarIndex(int index) throws SQLException {
+        String sql = "SELECT ID, NOME, DESCRICAO, QUANTIDADE, PRECO, FORNECEDOR FROM PRODUTO WHERE ID = ?";
+
+        Connection conexao = new ConnectionFactory().getConnection();
+        PreparedStatement stmt = conexao.prepareStatement(sql);
+
+        int id = index;
+        System.out.println(id);
+
+        stmt.setInt(1, id);
+        ResultSet rs = stmt.executeQuery();
+
+        Produto p = null;
+
+       if(rs.next()) {
+            String nome = rs.getString("NOME");
+            String descricao = rs.getString("DESCRICAO");
+            int quantidade = rs.getInt("QUANTIDADE");
+            int preco = rs.getInt("PRECO");
+            String fornecedor = rs.getString("FORNECEDOR");
+            
+            p = new Produto(id, nome, descricao, quantidade, preco, fornecedor);
+            
+        }
+ 
+        return p;
     }
 
 }

@@ -1,0 +1,107 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 04/10/2022, 10:37:24
+    Author     : otavio
+*/
+*{
+    padding: 0;
+    margin: 0;
+
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background: -webkit-linear-gradient(-1409deg, #fb2424, #ffc42e);
+}
+.box{
+    width: 50%;
+    height: 70%;
+    background-color:rgb(35, 31, 31);
+    border-radius: 15px;
+}
+
+.img{
+    background: transparent;
+}
+.center{
+    float: left;
+    background: transparent;
+    padding: 130px 0px 0px 80px;
+}
+
+.menu{
+    margin-top: 75px;
+    width: 50%;
+    height: 70%;
+    background: transparent;
+    float: right;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input{
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 300px;
+    border: 1px solid white;
+    color: white;
+    background: transparent;
+}
+.btn{
+    margin-top: 15px;
+    width: 130px;
+    border-radius: 10px;
+    border: 1.5px solid white;
+    font-size: 14px;
+    font-weight: 600;
+}
+.btn:hover{
+    background: white;
+    color: black;
+}
+.centerr{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 35px;
+}
+.escolherArquivo{
+    border: 0px solid white;
+}
+h1{
+    color: white;
+    margin: 0px 0px 15px 17px;
+    font-family: 'roboto';
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+input[type="file"]{
+    display: none;
+}
+label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 7px;
+    color: black;
+    background: lightgray;
+    width: 140px;
+    height: 20px;
+    cursor: pointer;
+}
+i{
+    margin: 0px 0px 0px 5px;
+}

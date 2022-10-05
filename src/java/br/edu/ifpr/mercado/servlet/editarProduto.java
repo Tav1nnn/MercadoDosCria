@@ -22,23 +22,34 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author otavio
  */
-@WebServlet(name = "editarProduto", urlPatterns = {"/editarProduto"})
-public class editarProduto extends HttpServlet {
+@WebServlet(name = "editarProduto", urlPatterns = {"/EditarProduto"})
+public class EditarProduto extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
     
     }
+    
+    int index;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      
         
+        int index  = Integer.parseInt(request.getParameter("indice"));
+        System.out.println(index);
         
-    
-      
+        ProdutoModel model = new ProdutoModel();
+        
+        try {
+            Produto p = model.buscarIndex(index);
+            request.setAttribute("p", p);
+            request.getRequestDispatcher("WEB-INF/editarProduto.jsp").forward(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(EditarProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     

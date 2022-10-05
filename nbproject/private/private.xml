@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/otavio/Documents/NetBeansProjects/MercadoDosCria/src/java/br/edu/ifpr/mercado/servlet/editarProduto.java</file>
             <file>file:/C:/Users/otavio/Documents/NetBeansProjects/MercadoDosCria/src/java/br/edu/ifpr/mercado/DAOs/ProdutoDAO.java</file>
-            <file>file:/C:/Users/otavio/Documents/NetBeansProjects/MercadoDosCria/src/java/br/edu/ifpr/mercado/servlet/listarProdutos.java</file>
+            <file>file:/C:/Users/otavio/Documents/NetBeansProjects/MercadoDosCria/web/WEB-INF/listaProdutos.jsp</file>
             <file>file:/C:/Users/otavio/Documents/NetBeansProjects/MercadoDosCria/src/java/br/edu/ifpr/mercado/models/ProdutoModel.java</file>
+            <file>file:/C:/Users/otavio/Documents/NetBeansProjects/MercadoDosCria/web/css/cadastroProduto.css</file>
+            <file>file:/C:/Users/otavio/Documents/NetBeansProjects/MercadoDosCria/src/java/br/edu/ifpr/mercado/servlet/EditarProduto.java</file>
+            <file>file:/C:/Users/otavio/Documents/NetBeansProjects/MercadoDosCria/web/WEB-INF/editarProduto.jsp</file>
             <file>file:/C:/Users/otavio/Documents/NetBeansProjects/MercadoDosCria/web/WEB-INF/cadastroProduto.jsp</file>
         </group>
     </open-files>
