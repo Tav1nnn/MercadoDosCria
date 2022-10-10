@@ -8,6 +8,9 @@ import br.edu.ifpr.mercado.entities.Produto;
 import br.edu.ifpr.mercado.models.ProdutoModel;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +39,11 @@ public class ExcluirProduto extends HttpServlet {
         
         ProdutoModel model = new ProdutoModel();
         
-        model.excluirProduto(index);
+        try {
+            model.excluirProduto(index);
+        } catch (SQLException ex) {
+            Logger.getLogger(ExcluirProduto.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         response.sendRedirect("ListarProdutos");
     }

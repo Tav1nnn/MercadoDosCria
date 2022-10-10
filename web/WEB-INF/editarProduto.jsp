@@ -23,10 +23,11 @@
                 <div class="center"><h1>Editar Produto</h1><img src="img/carrinhocompra.png" alt="alt" height="230px" width="230px" class="img"/></div>
 
                 <div class="menu">
-                    <form action="CadastroProduto" method="post" enctype="multipart/form-data">
+                    <form action="Editar" method="post" enctype="multipart/form-data">
+                        <input type="number" name="id" value="${p.id}">
                         <input type="text" name="nome" placeholder="Nome" value="${p.nome}">
                         <input type="textarea" name="descricao" placeholder="Descrição" value="${p.descricao}">
-                        <input type="number" name="qtd" placeholder="Quantidade" value="${p.quantidade}">
+                        <input type="number" name="quantidade" placeholder="Quantidade" value="${p.quantidade}">
                         <input type="number" name="preco" placeholder="Preço" value="${p.preco}">
                         <input type="text" name="fornecedor" placeholder="Fornecedor" value="${p.fornecedor}">
                         <label for="file">Foto do Produto <i class="fa-solid fa-image"></i></label>

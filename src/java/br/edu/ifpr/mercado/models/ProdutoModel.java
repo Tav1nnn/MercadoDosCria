@@ -30,8 +30,17 @@ public class ProdutoModel {
         return p;
     }
     
-    public void excluirProduto(int index){
+    public void excluirProduto(int index) throws SQLException{
         ProdutoDAO dao = new ProdutoDAO();
         dao.excluirProduto(index);
+    }
+    
+    public void editar(Produto p) throws SQLException{
+        ProdutoDAO dao = new ProdutoDAO();
+        if(p.getImagem().length==0){
+            dao.editarSemImg(p);
+        }else{
+            dao.editar(p);
+        }
     }
 }

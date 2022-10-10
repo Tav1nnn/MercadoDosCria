@@ -17,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 /**
  *
@@ -28,20 +29,17 @@ public class EditarProduto extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
-    
+
     }
-    
-    int index;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        int index  = Integer.parseInt(request.getParameter("indice"));
-        System.out.println(index);
-        
+
+        int index = Integer.parseInt(request.getParameter("indice"));
+
         ProdutoModel model = new ProdutoModel();
-        
+
         try {
             Produto p = model.buscarIndex(index);
             request.setAttribute("p", p);
@@ -49,10 +47,17 @@ public class EditarProduto extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(EditarProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
-    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        System.out.println(request.getParameter("id"));
+
+
+    }
 
     @Override
     public String getServletInfo() {

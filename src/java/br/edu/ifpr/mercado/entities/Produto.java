@@ -20,6 +20,8 @@ public class Produto {
 
     public Produto() {
     }
+    
+    
 
     public Produto(int id, String nome, String descricao, int quantidade, int preco, String fornecedor, byte[] imagem, String imagemtipo) {
         this.id = id;

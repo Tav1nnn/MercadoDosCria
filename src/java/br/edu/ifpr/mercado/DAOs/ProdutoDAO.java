@@ -70,7 +70,6 @@ public class ProdutoDAO {
         PreparedStatement stmt = conexao.prepareStatement(sql);
 
         int id = index;
-        System.out.println(id);
 
         stmt.setInt(1, id);
         ResultSet rs = stmt.executeQuery();
@@ -100,6 +99,48 @@ public class ProdutoDAO {
 
         stmt.setInt(1, id);
 
+        stmt.execute();
+        stmt.close();
+        conexao.close();
+    }
+
+    public void editarSemImg(Produto p) throws SQLException {
+        String sql = "UPDATE PRODUTO SET NOME = ?, DESCRICAO = ? QUANTIDADE = ?, PRECO = ?, FORNECEDOR = ? WHERE ID = ?";
+        Connection conexao = new ConnectionFactory().getConnection();
+        PreparedStatement stmt = conexao.prepareStatement(sql);
+        
+        int id = p.getId();
+        
+        
+        stmt.setString(1, p.getNome());
+        stmt.setString(2, p.getDescricao());
+        stmt.setInt(3, p.getQuantidade());
+        stmt.setInt(4, p.getPreco());
+        stmt.setString(5, p.getFornecedor());
+        stmt.setInt(6, id);
+        
+        stmt.execute();
+        stmt.close();
+        conexao.close();
+    }
+
+    public void editar(Produto p) throws SQLException {
+        String sql = "UPDATE PRODUTO SET NOME = ?, DESCRICAO = ? QUANTIDADE = ?, PRECO = ?, FORNECEDOR = ?, IMAGEM = ?, IMAGEMTIPO = ? WHERE ID = ?";
+        Connection conexao = new ConnectionFactory().getConnection();
+        PreparedStatement stmt = conexao.prepareStatement(sql);
+        
+        int id = p.getId();
+        
+        
+        stmt.setString(1, p.getNome());
+        stmt.setString(2, p.getDescricao());
+        stmt.setInt(3, p.getQuantidade());
+        stmt.setInt(4, p.getPreco());
+        stmt.setString(5, p.getFornecedor());
+        stmt.setBytes(6, p.getImagem());
+        stmt.setString(7, p.getImagemtipo());
+        stmt.setInt(8, id);
+        
         stmt.execute();
         stmt.close();
         conexao.close();
