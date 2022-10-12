@@ -58,6 +58,8 @@ public class Login extends HttpServlet {
             if(u != null) {
                 if(u.getAdm()==true){
                     response.sendRedirect("MenuAdm");
+                }else{
+                    response.sendRedirect("Compra");
                 }
             } else {
                 response.sendRedirect("Login");

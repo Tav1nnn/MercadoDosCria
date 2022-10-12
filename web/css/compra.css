@@ -1,0 +1,84 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 11/10/2022, 08:29:19
+    Author     : otavio
+*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    
+}
+
+body{background-color: rgb(35, 31, 31);}
+
+
+.container{
+    background-color: rgb(35, 31, 31);
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.produtos{
+    margin: 30px 0px 0px 0px;
+    display: flex;
+    align-items: center;
+    background: #FDBA12;
+    width: 60vw;
+    height: 20vh;
+    border-radius: 20px;
+}
+
+.cheeckbox{
+    height: 20vh;
+    width: 6vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.linha{
+    
+    height: 18vh;
+    width: 0.13vw;
+    background: #2D3035;
+}
+.img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+img{
+    height: 18vh;
+    width: 12vw;
+}
+
+.descricao{
+    margin: 0px 0px 0px 18px;
+    height: 20vh;
+    width: 30vw;
+    display: flex;
+    align-items: center;
+}
+
+li{
+    font-family: 'Roboto', sans-serif;
+    list-style-type: none;
+    font-size: 1.2em;
+}
+
+.quantidade{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+input[type=number]{
+   width: 3vw;
+}

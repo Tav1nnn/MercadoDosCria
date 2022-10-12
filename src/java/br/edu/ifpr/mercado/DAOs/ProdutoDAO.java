@@ -38,7 +38,7 @@ public class ProdutoDAO {
     }
 
     public ArrayList listar() throws SQLException {
-        String sql = "SELECT ID, NOME, DESCRICAO, QUANTIDADE, PRECO, FORNECEDOR FROM PRODUTO";//talvez de errado
+        String sql = "SELECT ID, NOME, DESCRICAO, QUANTIDADE, PRECO, IMAGEM, IMAGEMTIPO, FORNECEDOR FROM PRODUTO";//talvez de errado
 
         ArrayList<Produto> produtos = new ArrayList();
 
@@ -54,6 +54,8 @@ public class ProdutoDAO {
             p.setQuantidade(rs.getInt("QUANTIDADE"));
             p.setPreco(rs.getInt("PRECO"));
             p.setFornecedor(rs.getString("FORNECEDOR"));
+            p.setImagem(rs.getBytes("IMAGEM"));
+            p.setImagemtipo(rs.getString("IMAGEMTIPO"));
 
             produtos.add(p);
         }
@@ -64,7 +66,7 @@ public class ProdutoDAO {
     }
 
     public Produto buscarIndex(int index) throws SQLException {
-        String sql = "SELECT ID, NOME, DESCRICAO, QUANTIDADE, PRECO, FORNECEDOR FROM PRODUTO WHERE ID = ?";
+        String sql = "SELECT ID, NOME, DESCRICAO, QUANTIDADE, PRECO, FORNECEDOR, IMAGEM, IMAGEMTIPO FROM PRODUTO WHERE ID = ?";
 
         Connection conexao = new ConnectionFactory().getConnection();
         PreparedStatement stmt = conexao.prepareStatement(sql);
@@ -82,8 +84,11 @@ public class ProdutoDAO {
             int quantidade = rs.getInt("QUANTIDADE");
             int preco = rs.getInt("PRECO");
             String fornecedor = rs.getString("FORNECEDOR");
+            byte[] imagem = rs.getBytes("IMAGEM");
+            String imagemtipo = rs.getString("IMAGEMTIPO");
+             
 
-            p = new Produto(id, nome, descricao, quantidade, preco, fornecedor);
+            p = new Produto(id, nome, descricao, quantidade, preco, fornecedor, imagem, imagemtipo);
 
         }
         conexao.close();
@@ -105,7 +110,7 @@ public class ProdutoDAO {
     }
 
     public void editarSemImg(Produto p) throws SQLException {
-        String sql = "UPDATE PRODUTO SET NOME = ?, DESCRICAO = ? QUANTIDADE = ?, PRECO = ?, FORNECEDOR = ? WHERE ID = ?";
+        String sql = "UPDATE PRODUTO SET NOME = ?, DESCRICAO = ?, QUANTIDADE = ?, PRECO = ?, FORNECEDOR = ? WHERE ID = ?";
         Connection conexao = new ConnectionFactory().getConnection();
         PreparedStatement stmt = conexao.prepareStatement(sql);
         
@@ -125,7 +130,7 @@ public class ProdutoDAO {
     }
 
     public void editar(Produto p) throws SQLException {
-        String sql = "UPDATE PRODUTO SET NOME = ?, DESCRICAO = ? QUANTIDADE = ?, PRECO = ?, FORNECEDOR = ?, IMAGEM = ?, IMAGEMTIPO = ? WHERE ID = ?";
+        String sql = "UPDATE PRODUTO SET NOME = ?, DESCRICAO = ?, QUANTIDADE = ?, PRECO = ?, FORNECEDOR = ?, IMAGEM = ?, IMAGEMTIPO = ? WHERE ID = ?";
         Connection conexao = new ConnectionFactory().getConnection();
         PreparedStatement stmt = conexao.prepareStatement(sql);
         

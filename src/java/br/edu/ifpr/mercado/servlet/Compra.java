@@ -22,41 +22,41 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author otavio
  */
-@WebServlet(name = "listarProdutos", urlPatterns = {"/ListarProdutos"})
-public class ListarProdutos extends HttpServlet {
+@WebServlet(name = "Compra", urlPatterns = {"/Compra"})
+public class Compra extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-     
+
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         ProdutoModel model = new ProdutoModel();
-      
+
+        ArrayList<Produto> produtos;
         try {
-            ArrayList<Produto> produtos = model.listar();
-            System.out.println(produtos);
+            produtos = model.listar();
             request.setAttribute("produtos", produtos);
-            request.getRequestDispatcher("WEB-INF/listaProdutos.jsp").forward(request, response);
+            request.getRequestDispatcher("WEB-INF/compra.jsp").forward(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(EditarProduto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Compra.class.getName()).log(Level.SEVERE, null, ex);
         }
-         
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
     }
 
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }

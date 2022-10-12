@@ -22,30 +22,24 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author otavio
  */
-@WebServlet(name = "listarProdutos", urlPatterns = {"/ListarProdutos"})
-public class ListarProdutos extends HttpServlet {
-
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-     
-    }
+@WebServlet(name = "MostrarImg", urlPatterns = {"/MostrarImg"})
+public class MostrarImg extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
         ProdutoModel model = new ProdutoModel();
-      
+        
+        int id = Integer.parseInt(request.getParameter("id"));      
         try {
-            ArrayList<Produto> produtos = model.listar();
-            System.out.println(produtos);
-            request.setAttribute("produtos", produtos);
-            request.getRequestDispatcher("WEB-INF/listaProdutos.jsp").forward(request, response);
+            Produto p = model.buscarIndex(id);
+            
+            response.getOutputStream().write(p.getImagem());
+            response.setContentType(p.getImagemtipo());
         } catch (SQLException ex) {
-            Logger.getLogger(EditarProduto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MostrarImg.class.getName()).log(Level.SEVERE, null, ex);
         }
-         
     }
 
     @Override
@@ -57,6 +51,6 @@ public class ListarProdutos extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }
