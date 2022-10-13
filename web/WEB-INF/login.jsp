@@ -22,9 +22,13 @@
                     <input type="email" name="email" placeholder="Email">
                     <input type="password" name="senha" placeholder="Senha">
                     <input type="submit" name="btn" value="Entrar" class="btn">
+                    <p>
+                        <label class="" for="manter" style="color: white; text-decoration: underline;">Manter-me Logado</label>
+                        <input type="checkbox" name="manter" value="s" id="manter"/>                    
+                    </p>
                 </form>
-               
-                <a href="Cadastro" style="color: white">Cadastrar-se</a>
+
+                <a href="Cadastro" style="color: white;">Cadastrar-se</a>
             </section>
         </div>
     </body>

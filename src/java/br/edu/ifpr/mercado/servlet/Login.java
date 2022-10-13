@@ -10,9 +10,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -21,19 +23,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "Login", urlPatterns = {"/Login"})
 public class Login extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
     }
 
     @Override
@@ -46,19 +39,29 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String email, senha;
-        
+
         email = request.getParameter("email");
         senha = request.getParameter("senha");
-          
+
         UsuarioModel model = new UsuarioModel();
-        
+
         try {
             Usuario u = model.confirmarLogin(email, senha);
-            System.out.println(u.getAdm());
-            if(u != null) {
-                if(u.getAdm()==true){
+            if (u != null) {
+
+                HttpSession sessao = request.getSession(true);
+                sessao.setAttribute("autenticado", true);
+                sessao.setAttribute("autenticado", u);
+
+                if (u.getAdm() == true) {
                     response.sendRedirect("MenuAdm");
-                }else{
+                    
+                } else {
+                    if ("s".equals(request.getParameter("manter"))) {
+                        Cookie cookie = new Cookie("manterLogado", "manter");
+                        cookie.setMaxAge(60 * 60 * 24 * 30);
+                        response.addCookie(cookie);
+                    }
                     response.sendRedirect("Compra");
                 }
             } else {

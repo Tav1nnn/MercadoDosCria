@@ -4,6 +4,7 @@
  */
 package br.edu.ifpr.mercado.filters;
 
+import br.edu.ifpr.mercado.entities.Usuario;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
@@ -23,22 +24,27 @@ import javax.servlet.http.HttpSession;
  *
  * @author otavio
  */
-@WebFilter(filterName = "UsuarioFilter", servletNames = {"Compra"} )
-public class UsuarioFilter implements Filter {
-    
-   public void doFilter(ServletRequest req, ServletResponse res,
+@WebFilter(filterName = "AdmFilter", servletNames = {"MenuAdm", "CadastroProduto", "ListarProduto", "ExcluirProduto", "EditarProduto"})
+public class AdmFilter implements Filter {
+
+    public void doFilter(ServletRequest req, ServletResponse res,
             FilterChain chain)
             throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) res;
-        
         HttpSession sessao = request.getSession(false);
-        if(sessao != null && sessao.getAttribute("autenticado") != null) {
-            chain.doFilter(request, response);
-        }
-        else {
+
+        if (sessao != null && sessao.getAttribute("autenticado") != null) {
+            Usuario u = (Usuario) sessao.getAttribute("autenticado");
+            if (u.getAdm() == true) {
+                chain.doFilter(request, response);
+            }else{
+                response.sendRedirect("Login");
+            }
+        } else {
             response.sendRedirect("Login");
-        }   
+        }
+
     }
-    
+
 }

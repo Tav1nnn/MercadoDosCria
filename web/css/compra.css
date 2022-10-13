@@ -7,13 +7,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Author     : otavio
 */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@100;400&display=swap');
 *{
     padding: 0;
     margin: 0;
-    
+
 }
 
-body{background-color: rgb(35, 31, 31);}
+body{
+    background-color: rgb(35, 31, 31);
+    padding: 0;
+    margin: 0;
+}
 
 
 .container{
@@ -21,13 +26,48 @@ body{background-color: rgb(35, 31, 31);}
     width: 100vw;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+header{
+    width: 100vw;
+    height: 20vh;
+    background: -webkit-linear-gradient(-1409deg, #fb2424, #ffc42e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.linha2{
+    height: 18vh;
+    width: 0.20vw;
+    background: #2D3035;
+}
+
+h1{
+    font-family: 'Anton', sans-serif;
+    font-size: 4em;
+    color: white;
+    text-shadow: black  3px 3px 3px ;
+}
+
+form{
+    margin-top: 8vh;
 }
 
 .produtos{
     margin: 30px 0px 0px 0px;
     display: flex;
     align-items: center;
-    background: #FDBA12;
+    background: -webkit-linear-gradient(-1409deg, #fb2424, #ffc42e);
     width: 60vw;
     height: 20vh;
     border-radius: 20px;
@@ -39,10 +79,10 @@ body{background-color: rgb(35, 31, 31);}
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 .linha{
-    
+
     height: 18vh;
     width: 0.13vw;
     background: #2D3035;
@@ -80,5 +120,5 @@ li{
 }
 
 input[type=number]{
-   width: 3vw;
+    width: 3vw;
 }

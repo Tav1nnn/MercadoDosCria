@@ -3,12 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/otavio/Documents/NetBeansProjects/MercadoDosCria/src/java/br/edu/ifpr/mercado/servlet/ListarProdutos.java</file>
-            <file>file:/C:/Users/otavio/Documents/NetBeansProjects/MercadoDosCria/src/java/br/edu/ifpr/mercado/DAOs/ProdutoDAO.java</file>
-            <file>file:/C:/Users/otavio/Documents/NetBeansProjects/MercadoDosCria/src/java/br/edu/ifpr/mercado/servlet/Compra.java</file>
-            <file>file:/C:/Users/otavio/Documents/NetBeansProjects/MercadoDosCria/src/java/br/edu/ifpr/mercado/servlet/MostrarImg.java</file>
+            <file>file:/C:/Users/otavio/Documents/NetBeansProjects/MercadoDosCria/web/css/compra.css</file>
             <file>file:/C:/Users/otavio/Documents/NetBeansProjects/MercadoDosCria/web/WEB-INF/compra.jsp</file>
-            <file>file:/C:/Users/otavio/Documents/NetBeansProjects/MercadoDosCria/web/WEB-INF/listaProdutos.jsp</file>
+            <file>file:/C:/Users/otavio/Documents/NetBeansProjects/MercadoDosCria/web/css/cadastroProduto.css</file>
         </group>
     </open-files>
 </project-private>
