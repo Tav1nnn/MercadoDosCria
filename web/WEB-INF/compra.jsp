@@ -12,6 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Compra</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <link rel="stylesheet" href="css/compra.css"/>
     </head>
     <body>
@@ -23,13 +24,16 @@
                 </div>
                 <div class="linha2"></div>
                 <div class="user">
-
+                    <p>${usuario.nome}</p>
+                    <a href="Sair">
+                       Sair
+                    </a>
                 </div>
 
             </header>
 
         </div>
-        <form action="action" method="post">
+        <form action="Compra" method="post">
             <c:forEach varStatus="status" var="model" items="${produtos}">
                 <div class="produtos">
                     <div class="cheeckbox">
@@ -47,11 +51,12 @@
                         </ul>
                     </div>
                     <div class="quantidade">
-                        <input type="number" max="${model.quantidade}" min="1">
+                        <input type="number" name="${model.id}" max="${model.quantidade}" min="1" />
                     </div>
                 </div>  
             </c:forEach>
-            <input type="submit" name="name">
+            <input type="text" name="endereco">
+            <input type="submit">
         </form>
     </section>
 </body>

@@ -8,18 +8,23 @@ package br.edu.ifpr.mercado.entities;
  *
  * @author otavio
  */
-public class Compra {
+public class Compraa {
     private int id;
-    private int preco;
     private String endereco;
     private int idUsuario;
 
-    public Compra() {
+    public Compraa() {
     }
 
-    public Compra(int id, int preco, String endereco, int idUsuario) {
+    public Compraa(String endereco, int idUsuario) {
+        this.endereco = endereco;
+        this.idUsuario = idUsuario;
+    }
+    
+    
+
+    public Compraa(int id, String endereco, int idUsuario) {
         this.id = id;
-        this.preco = preco;
         this.endereco = endereco;
         this.idUsuario = idUsuario;
     }
@@ -30,14 +35,6 @@ public class Compra {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getPreco() {
-        return preco;
-    }
-
-    public void setPreco(int preco) {
-        this.preco = preco;
     }
 
     public String getEndereco() {

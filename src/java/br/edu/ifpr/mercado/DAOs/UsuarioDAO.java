@@ -38,7 +38,7 @@ public class UsuarioDAO {
         Usuario u = null;
         boolean adm = false;
 
-        String sql = "SELECT NOME, EMAIL, SENHA, ADM FROM USUARIOS WHERE EMAIL = ? AND SENHA = ?";//talvez de errado
+        String sql = "SELECT ID, NOME, EMAIL, SENHA, ADM FROM USUARIOS WHERE EMAIL = ? AND SENHA = ?";//talvez de errado
         Connection conexao = new ConnectionFactory().getConnection();
         PreparedStatement stmt = conexao.prepareStatement(sql);
 
@@ -48,6 +48,7 @@ public class UsuarioDAO {
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
             u = new Usuario();
+            u.setId(rs.getInt("ID"));
             u.setEmail(rs.getString("EMAIL"));
             u.setSenha(rs.getString("SENHA"));
             u.setNome(rs.getString("NOME"));

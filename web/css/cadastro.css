@@ -7,6 +7,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Author     : otavio
 */
 *{
+    font-family: cursive;
     padding: 0;
     margin: 0;
     background-color: rgb(35, 31, 31);

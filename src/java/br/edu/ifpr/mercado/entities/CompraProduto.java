@@ -47,5 +47,8 @@ public class CompraProduto {
         this.idProduto = idProduto;
     }
     
-    
+    @Override
+    public String toString(){
+        return "Produto: " + this.idProduto + " Quantidade: " + this.quantidade;
+    }
 }
