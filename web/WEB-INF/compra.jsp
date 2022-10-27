@@ -17,20 +17,7 @@
     </head>
     <body>
         <section class="container">
-            <header>
-                <div class="name">
-                    <h1>Mercado Dos Crias</h1>
-                    <img src="img/carrinhocompra.png" alt="alt"/>
-                </div>
-                <div class="linha2"></div>
-                <div class="user">
-                    <p>${usuario.nome}</p>
-                    <a href="Sair">
-                       Sair
-                    </a>
-                </div>
-
-            </header>
+             <c:import url="header.jsp"></c:import> 
 
         </div>
         <form action="Compra" method="post">

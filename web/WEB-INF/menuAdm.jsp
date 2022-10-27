@@ -22,7 +22,7 @@
                 <div class="menu">
                     <a href="CadastroProduto">Novo Produto</a>
                     <a href="ListarProdutos">Lista Produtos</a>
-                    <a href="Login">Voltar</a>
+                    <a href="Sair">Sair</a>
                     
                 </div>
             </div>

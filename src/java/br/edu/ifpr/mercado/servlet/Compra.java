@@ -10,6 +10,7 @@ import br.edu.ifpr.mercado.entities.Compraa;
 import br.edu.ifpr.mercado.entities.Produto;
 import br.edu.ifpr.mercado.entities.Usuario;
 import br.edu.ifpr.mercado.models.CompraModel;
+import br.edu.ifpr.mercado.models.CompraProdutoModel;
 import br.edu.ifpr.mercado.models.ProdutoModel;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -80,29 +81,31 @@ public class Compra extends HttpServlet {
             Enumeration<String> parametros = request.getParameterNames();
 
             ArrayList<CompraProduto> arraycp = new ArrayList();
-
-            while (parametros.hasMoreElements()) {
+            int contador = 0;
+           /* while (parametros.hasMoreElements()) {
 
                 String nomeParametro = parametros.nextElement();
 
                 Integer idProduto = Helper.stringToInt(nomeParametro);
 
-                if (idProduto != null && request.getParameter(nomeParametro) != null) {
+               if (idProduto != null && request.getParameter(nomeParametro) != null) {
 
                     int quantidade = Integer.parseInt(request.getParameter(nomeParametro));
                     int idCompra = novaCompra.getId();
-
                     
-                    
+              
                     CompraProduto cp = new CompraProduto(quantidade, idCompra, idProduto);
                     
                     System.out.println(cp);
                     arraycp.add(cp);
                     
+                    
 
                 }
 
-            }
+            }*/
+           request.getRequestDispatcher("WEB-INF/sucesso.jsp").forward(request, response);
+            
         } catch (SQLException ex) {
             Logger.getLogger(Compra.class.getName()).log(Level.SEVERE, null, ex);
         }
