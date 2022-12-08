@@ -10,7 +10,7 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>Cookies</welcome-file>
+        <welcome-file>LoginAjax</welcome-file>
     </welcome-file-list>
         
 </web-app>

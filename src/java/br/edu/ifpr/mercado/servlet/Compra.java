@@ -44,18 +44,23 @@ public class Compra extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession sessao = request.getSession(false);
+        Usuario u = (Usuario) sessao.getAttribute("autenticado");
+        request.setAttribute("usuario", u);
 
-        ProdutoModel model = new ProdutoModel();
+        if (u.getAdm() == true) {
+            response.sendRedirect("MenuAdm");
+        } else {
+            ProdutoModel model = new ProdutoModel();
 
-        ArrayList<Produto> produtos;
-        try {
-            Usuario u = (Usuario) sessao.getAttribute("autenticado");
-            request.setAttribute("usuario", u);
-            produtos = model.listar();
-            request.setAttribute("produtos", produtos);
-            request.getRequestDispatcher("WEB-INF/compra.jsp").forward(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(Compra.class.getName()).log(Level.SEVERE, null, ex);
+            ArrayList<Produto> produtos;
+            try {
+
+                produtos = model.listar();
+                request.setAttribute("produtos", produtos);
+                request.getRequestDispatcher("WEB-INF/compra.jsp").forward(request, response);
+            } catch (SQLException ex) {
+                Logger.getLogger(Compra.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
     }
@@ -82,7 +87,7 @@ public class Compra extends HttpServlet {
 
             ArrayList<CompraProduto> arraycp = new ArrayList();
             int contador = 0;
-           /* while (parametros.hasMoreElements()) {
+            /* while (parametros.hasMoreElements()) {
 
                 String nomeParametro = parametros.nextElement();
 
@@ -104,8 +109,8 @@ public class Compra extends HttpServlet {
                 }
 
             }*/
-           request.getRequestDispatcher("WEB-INF/sucesso.jsp").forward(request, response);
-            
+            request.getRequestDispatcher("WEB-INF/sucesso.jsp").forward(request, response);
+
         } catch (SQLException ex) {
             Logger.getLogger(Compra.class.getName()).log(Level.SEVERE, null, ex);
         }
