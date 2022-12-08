@@ -47,9 +47,7 @@ public class Compra extends HttpServlet {
         Usuario u = (Usuario) sessao.getAttribute("autenticado");
         request.setAttribute("usuario", u);
 
-        if (u.getAdm() == true) {
-            response.sendRedirect("MenuAdm");
-        } else {
+       
             ProdutoModel model = new ProdutoModel();
 
             ArrayList<Produto> produtos;
@@ -61,7 +59,7 @@ public class Compra extends HttpServlet {
             } catch (SQLException ex) {
                 Logger.getLogger(Compra.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+        
 
     }
 

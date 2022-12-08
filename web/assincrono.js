@@ -8,15 +8,23 @@ async function logar(event) {
         body: data
     });
     
-    let resultadoData = await resultado.json();
+
     
+    let resultadoData = await resultado.json();
+
+    console.log(resultadoData);
     
     if(resultadoData.status){
        alert(resultadoData.Message);
 
     }
     else {
-        window.location.href = "Compra";
+        if(resultadoData.adm){
+            window.location.href = "MenuAdm";
+        }else{
+            window.location.href = "Compra";
+        }
+        
     }
         
 }
